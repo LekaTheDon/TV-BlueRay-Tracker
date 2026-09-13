@@ -1,3 +1,4 @@
+import difflib
 import json
 import os
 import re
@@ -11,7 +12,14 @@ TMDB_API_KEY = os.environ["TMDB_API_KEY"]
 TMDB_BASE = "https://api.themoviedb.org/3"
 RSS_URL = "https://www.blu-ray.com/rss/newreleasesfeed.xml"
 DB_PATH = "data/database.json"
+OVERRIDES_PATH = "data/overrides.json"
+NEEDS_REVIEW_PATH = "data/needs_review.json"
 OUTPUT_DIR = "output"
+
+# Below this similarity between our cleaned search title and TMDB's returned
+# title, we don't trust the match - better to flag it for review than to
+# confidently link the wrong show.
+MATCH_CONFIDENCE_THRESHOLD = 0.6
 
 # TMDB TV genre ids (there is no dedicated "Horror" TV genre in TMDB's
 # vocabulary, so Horror is detected separately via keyword tagging below).
@@ -105,42 +113,117 @@ def has_horror_keyword(tmdb_id):
     return any("horror" in (k.get("name") or "").lower() for k in keywords)
 
 
-def load_db():
-    if os.path.exists(DB_PATH):
-        with open(DB_PATH, "r", encoding="utf-8") as f:
+def normalize_for_compare(s):
+    s = s.lower()
+    s = re.sub(r"[^a-z0-9]+", " ", s)
+    return s.strip()
+
+
+def title_similarity(a, b):
+    return difflib.SequenceMatcher(None, normalize_for_compare(a), normalize_for_compare(b)).ratio()
+
+
+def load_json(path, default):
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
-    return {}
+    return default
+
+
+def save_json(path, data):
+    dirname = os.path.dirname(path)
+    if dirname:
+        os.makedirs(dirname, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+
+def load_db():
+    return load_json(DB_PATH, {})
 
 
 def save_db(db):
-    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-    with open(DB_PATH, "w", encoding="utf-8") as f:
-        json.dump(db, f, indent=2, ensure_ascii=False)
+    save_json(DB_PATH, db)
 
 
 def main():
     db = load_db()  # keyed by tmdb_id (string)
+    # Manual overrides: source_title -> explicit tmdb_id, for stubborn cases
+    # that don't auto-match cleanly. Edit data/overrides.json by hand to add one.
+    overrides = load_json(OVERRIDES_PATH, {})
+    # Anything that failed to match (or matched with low confidence) gets
+    # logged here instead of silently dropped, keyed by source_title so a
+    # re-run doesn't pile up duplicate entries for the same release.
+    needs_review = load_json(NEEDS_REVIEW_PATH, {})
+
     entries = parse_items(fetch_rss())
 
     new_count = 0
     for entry in entries:
         if not looks_like_tv(entry["title"], entry["description"]):
             continue
-        name = clean_title(entry["title"])
-        print(f"[TV candidate] '{entry['title']}' -> search query: '{name}'")
+        source_title = entry["title"]
+        name = clean_title(source_title)
+        print(f"[TV candidate] '{source_title}' -> search query: '{name}'")
         if not name:
             print("  skipped: cleaned title was empty")
             continue
 
-        try:
-            result = search_tv(name)
-        except Exception as e:
-            print(f"  TMDB search failed: {e}", file=sys.stderr)
-            continue
-        if not result:
-            print("  no TMDB match found")
-            continue
-        print(f"  matched TMDB: '{result.get('name')}' (id={result['id']})")
+        override_id = overrides.get(source_title)
+        result = None
+        confidence = None
+
+        if override_id:
+            print(f"  using manual override: tmdb id {override_id}")
+            try:
+                result = tmdb_get(f"/tv/{override_id}", {})
+                result["id"] = override_id
+                # /tv/{id} returns full genre objects ({"id":18,"name":"Drama"}),
+                # not the flat "genre_ids" list /search/tv returns - normalize
+                # so downstream genre-list matching works the same either way.
+                result["genre_ids"] = [g["id"] for g in result.get("genres") or []]
+            except Exception as e:
+                print(f"  override lookup failed: {e}", file=sys.stderr)
+                continue
+        else:
+            try:
+                result = search_tv(name)
+            except Exception as e:
+                print(f"  TMDB search failed: {e}", file=sys.stderr)
+                continue
+            if not result:
+                print("  no TMDB match found - logged for review")
+                needs_review[source_title] = {
+                    "search_query": name,
+                    "reason": "no_match",
+                    "checked_date": time.strftime("%Y-%m-%d"),
+                }
+                continue
+
+            confidence = title_similarity(name, result.get("name") or "")
+            if confidence < MATCH_CONFIDENCE_THRESHOLD:
+                print(
+                    f"  low-confidence match ({confidence:.2f}): "
+                    f"'{result.get('name')}' (id={result['id']}) - logged for review, not added"
+                )
+                needs_review[source_title] = {
+                    "search_query": name,
+                    "reason": "low_confidence",
+                    "candidate_title": result.get("name"),
+                    "candidate_tmdb_id": result.get("id"),
+                    "confidence": round(confidence, 2),
+                    "checked_date": time.strftime("%Y-%m-%d"),
+                }
+                continue
+
+        print(
+            f"  matched TMDB: '{result.get('name')}' (id={result['id']})"
+            + (f" confidence={confidence:.2f}" if confidence is not None else " (override)")
+        )
+
+        # A successful match means this release is resolved - clear any
+        # stale review entry left over from a previous run.
+        needs_review.pop(source_title, None)
 
         tmdb_id = result["id"]
         key = str(tmdb_id)
@@ -171,13 +254,15 @@ def main():
             "genre_ids": result.get("genre_ids") or [],
             "is_horror": is_horror,
             "detected_date": time.strftime("%Y-%m-%d"),
-            "source_title": entry["title"],
+            "source_title": source_title,
         }
         new_count += 1
         time.sleep(0.3)  # be polite to TMDB's API
 
     save_db(db)
+    save_json(NEEDS_REVIEW_PATH, needs_review)
     print(f"Added {new_count} new TV entries this run. Total tracked: {len(db)}")
+    print(f"Items awaiting manual review: {len(needs_review)}")
 
     generate_outputs(db)
 
