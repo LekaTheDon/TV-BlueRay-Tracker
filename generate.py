@@ -25,7 +25,7 @@ GENRE_MAP = {
 }
 
 TV_HINT_PATTERN = re.compile(
-    r"season\s+\w+|the complete series|complete season|:\s*season|series\b",
+    r"season\s+\w+|the complete series|complete collection|complete season|:\s*season|series\b",
     re.IGNORECASE,
 )
 
