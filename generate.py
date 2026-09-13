@@ -25,7 +25,23 @@ GENRE_MAP = {
 }
 
 TV_HINT_PATTERN = re.compile(
-    r"season\s+\w+|the complete series|complete collection|complete season|:\s*season|series\b",
+    r"season\s+\w+|complete\s+(original\s+)?series|complete\s+collection|complete season|series\b",
+    re.IGNORECASE,
+)
+
+# Matches a trailing "season"/"complete series"/"complete collection" chunk
+# regardless of what punctuation (colon, hyphen, or nothing) precedes it, and
+# regardless of extra words in between (e.g. "Complete Original Series").
+TITLE_TRIM_PATTERN = re.compile(
+    r"\s*[:\-]?\s*(the\s+)?complete(\s+\w+)?\s+(series|collection)\b.*$"
+    r"|\s*[:\-]?\s*season\s+\w+.*$",
+    re.IGNORECASE,
+)
+
+# Common disc-marketing suffixes that don't help (and often hurt) a TMDB
+# title search.
+TRAILING_CRUFT_PATTERN = re.compile(
+    r"\s*\d+(st|nd|rd|th)\s+anniversary.*$|\s*anniversary\s+edition.*$|\s*limited\s+edition.*$",
     re.IGNORECASE,
 )
 
@@ -59,12 +75,8 @@ def looks_like_tv(title, description):
 def clean_title(title):
     t = title
     t = re.sub(r"\s*4K\s*(Ultra HD)?", "", t, flags=re.IGNORECASE)
-    t = re.sub(
-        r":\s*(the complete series|complete series|season\s+\w+|the complete season\s+\w+).*$",
-        "",
-        t,
-        flags=re.IGNORECASE,
-    )
+    t = TITLE_TRIM_PATTERN.sub("", t)
+    t = TRAILING_CRUFT_PATTERN.sub("", t)
     t = re.sub(r"\s*\(.*?\)\s*$", "", t)
     return t.strip(" :-")
 
@@ -115,20 +127,25 @@ def main():
         if not looks_like_tv(entry["title"], entry["description"]):
             continue
         name = clean_title(entry["title"])
+        print(f"[TV candidate] '{entry['title']}' -> search query: '{name}'")
         if not name:
+            print("  skipped: cleaned title was empty")
             continue
 
         try:
             result = search_tv(name)
         except Exception as e:
-            print(f"TMDB search failed for '{name}': {e}", file=sys.stderr)
+            print(f"  TMDB search failed: {e}", file=sys.stderr)
             continue
         if not result:
+            print("  no TMDB match found")
             continue
+        print(f"  matched TMDB: '{result.get('name')}' (id={result['id']})")
 
         tmdb_id = result["id"]
         key = str(tmdb_id)
         if key in db:
+            print("  already tracked, skipping")
             continue  # already tracked from a previous run
 
         try:
