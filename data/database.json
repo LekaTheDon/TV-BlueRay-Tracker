@@ -47,5 +47,37 @@
     "is_horror": false,
     "detected_date": "2026-09-13",
     "source_title": "Our Last Crusade or the Rise of a New World: Season 2 (Blu-ray)"
+  },
+  "253": {
+    "id": 253,
+    "title": "Star Trek",
+    "imdb_id": "tt0060028",
+    "mediatype": "show",
+    "release_year": "1966",
+    "vote_average": 7.989,
+    "genre_ids": [
+      10765,
+      18
+    ],
+    "is_horror": false,
+    "detected_date": "2026-09-13",
+    "source_title": "Star Trek: The Complete Original Series 60th Anniversary (Blu-ray)"
+  },
+  "280110": {
+    "id": 280110,
+    "title": "My Hero Academia: Vigilantes",
+    "imdb_id": "tt35636246",
+    "mediatype": "show",
+    "release_year": "2025",
+    "vote_average": 7.7,
+    "genre_ids": [
+      16,
+      10759,
+      18,
+      10765
+    ],
+    "is_horror": false,
+    "detected_date": "2026-09-13",
+    "source_title": "My Hero Academia: Vigilantes - Season 1 (Blu-ray)"
   }
 }

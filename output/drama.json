@@ -6,5 +6,21 @@
     "imdb_id": "tt16358384",
     "mediatype": "show",
     "release_year": "2022"
+  },
+  {
+    "id": 253,
+    "rank": 2,
+    "title": "Star Trek",
+    "imdb_id": "tt0060028",
+    "mediatype": "show",
+    "release_year": "1966"
+  },
+  {
+    "id": 280110,
+    "rank": 3,
+    "title": "My Hero Academia: Vigilantes",
+    "imdb_id": "tt35636246",
+    "mediatype": "show",
+    "release_year": "2025"
   }
 ]

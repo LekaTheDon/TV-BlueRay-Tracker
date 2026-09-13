@@ -16,8 +16,24 @@
     "release_year": "2020"
   },
   {
-    "id": 3902,
+    "id": 253,
     "rank": 3,
+    "title": "Star Trek",
+    "imdb_id": "tt0060028",
+    "mediatype": "show",
+    "release_year": "1966"
+  },
+  {
+    "id": 280110,
+    "rank": 4,
+    "title": "My Hero Academia: Vigilantes",
+    "imdb_id": "tt35636246",
+    "mediatype": "show",
+    "release_year": "2025"
+  },
+  {
+    "id": 3902,
+    "rank": 5,
     "title": "Shaun the Sheep",
     "imdb_id": "tt0983983",
     "mediatype": "show",
