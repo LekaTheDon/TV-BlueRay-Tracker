@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id": 222977,
+    "rank": 1,
+    "title": "The Inugami Family",
+    "imdb_id": null,
+    "mediatype": "show",
+    "release_year": "2023"
+  },
+  {
+    "id": 60726,
+    "rank": 2,
+    "title": "Forever",
+    "imdb_id": "tt3487382",
+    "mediatype": "show",
+    "release_year": "2014"
+  }
+]

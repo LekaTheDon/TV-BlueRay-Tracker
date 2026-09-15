@@ -79,5 +79,52 @@
     "is_horror": false,
     "detected_date": "2026-09-13",
     "source_title": "My Hero Academia: Vigilantes - Season 1 (Blu-ray)"
+  },
+  "222977": {
+    "id": 222977,
+    "title": "The Inugami Family",
+    "imdb_id": null,
+    "mediatype": "show",
+    "release_year": "2023",
+    "vote_average": 8.0,
+    "genre_ids": [
+      9648
+    ],
+    "is_horror": false,
+    "detected_date": "2026-09-15",
+    "source_title": "The Inugami Family (Blu-ray)"
+  },
+  "64492": {
+    "id": 64492,
+    "title": "SHIROBAKO",
+    "imdb_id": "tt3985228",
+    "mediatype": "show",
+    "release_year": "2014",
+    "vote_average": 7.838,
+    "genre_ids": [
+      16,
+      35,
+      18
+    ],
+    "is_horror": false,
+    "detected_date": "2026-09-15",
+    "source_title": "Shirobako: Complete TV Series (Blu-ray)"
+  },
+  "60726": {
+    "id": 60726,
+    "title": "Forever",
+    "imdb_id": "tt3487382",
+    "mediatype": "show",
+    "release_year": "2014",
+    "vote_average": 7.832,
+    "genre_ids": [
+      18,
+      80,
+      9648,
+      10765
+    ],
+    "is_horror": false,
+    "detected_date": "2026-09-15",
+    "source_title": "Forever: The Complete Series (Blu-ray)"
   }
 }
