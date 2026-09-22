@@ -126,5 +126,34 @@
     "is_horror": false,
     "detected_date": "2026-09-15",
     "source_title": "Forever: The Complete Series (Blu-ray)"
+  },
+  "56570": {
+    "id": 56570,
+    "title": "Outlander",
+    "imdb_id": "tt3006802",
+    "mediatype": "show",
+    "release_year": "2014",
+    "vote_average": 8.201,
+    "genre_ids": [
+      18,
+      10765
+    ],
+    "is_horror": false,
+    "detected_date": "2026-09-22",
+    "source_title": "Outlander: Season Eight (Blu-ray)"
+  },
+  "157741": {
+    "id": 157741,
+    "title": "Landman",
+    "imdb_id": "tt14186672",
+    "mediatype": "show",
+    "release_year": "2024",
+    "vote_average": 8.2,
+    "genre_ids": [
+      18
+    ],
+    "is_horror": false,
+    "detected_date": "2026-09-22",
+    "source_title": "Landman: Season Two (Blu-ray)"
   }
 }

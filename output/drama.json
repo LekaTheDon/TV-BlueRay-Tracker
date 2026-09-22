@@ -38,5 +38,21 @@
     "imdb_id": "tt3487382",
     "mediatype": "show",
     "release_year": "2014"
+  },
+  {
+    "id": 56570,
+    "rank": 6,
+    "title": "Outlander",
+    "imdb_id": "tt3006802",
+    "mediatype": "show",
+    "release_year": "2014"
+  },
+  {
+    "id": 157741,
+    "rank": 7,
+    "title": "Landman",
+    "imdb_id": "tt14186672",
+    "mediatype": "show",
+    "release_year": "2024"
   }
 ]
