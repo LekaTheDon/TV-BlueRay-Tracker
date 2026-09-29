@@ -78,5 +78,13 @@
     "imdb_id": "tt14186672",
     "mediatype": "show",
     "release_year": "2024"
+  },
+  {
+    "id": 1405,
+    "rank": 11,
+    "title": "Dexter",
+    "imdb_id": "tt0773262",
+    "mediatype": "show",
+    "release_year": "2006"
   }
 ]

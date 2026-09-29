@@ -14,5 +14,13 @@
     "imdb_id": "tt3487382",
     "mediatype": "show",
     "release_year": "2014"
+  },
+  {
+    "id": 1405,
+    "rank": 3,
+    "title": "Dexter",
+    "imdb_id": "tt0773262",
+    "mediatype": "show",
+    "release_year": "2006"
   }
 ]

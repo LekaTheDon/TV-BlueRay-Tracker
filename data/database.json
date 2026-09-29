@@ -155,5 +155,21 @@
     "is_horror": false,
     "detected_date": "2026-09-22",
     "source_title": "Landman: Season Two (Blu-ray)"
+  },
+  "1405": {
+    "id": 1405,
+    "title": "Dexter",
+    "imdb_id": "tt0773262",
+    "mediatype": "show",
+    "release_year": "2006",
+    "vote_average": 8.243,
+    "genre_ids": [
+      80,
+      18,
+      9648
+    ],
+    "is_horror": false,
+    "detected_date": "2026-09-29",
+    "source_title": "Dexter: The Complete Series (Blu-ray)"
   }
 }
