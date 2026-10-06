@@ -86,5 +86,29 @@
     "imdb_id": "tt0773262",
     "mediatype": "show",
     "release_year": "2006"
+  },
+  {
+    "id": 225891,
+    "rank": 12,
+    "title": "The Madison",
+    "imdb_id": "tt33204276",
+    "mediatype": "show",
+    "release_year": "2026"
+  },
+  {
+    "id": 54933,
+    "rank": 13,
+    "title": "Devil Survivor 2: The Animation",
+    "imdb_id": "tt2698484",
+    "mediatype": "show",
+    "release_year": "2013"
+  },
+  {
+    "id": 94954,
+    "rank": 14,
+    "title": "Hazbin Hotel",
+    "imdb_id": "tt7216636",
+    "mediatype": "show",
+    "release_year": "2024"
   }
 ]

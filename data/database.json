@@ -171,5 +171,52 @@
     "is_horror": false,
     "detected_date": "2026-09-29",
     "source_title": "Dexter: The Complete Series (Blu-ray)"
+  },
+  "225891": {
+    "id": 225891,
+    "title": "The Madison",
+    "imdb_id": "tt33204276",
+    "mediatype": "show",
+    "release_year": "2026",
+    "vote_average": 8.0,
+    "genre_ids": [
+      18
+    ],
+    "is_horror": false,
+    "detected_date": "2026-10-06",
+    "source_title": "The Madison: Season One (Blu-ray)"
+  },
+  "54933": {
+    "id": 54933,
+    "title": "Devil Survivor 2: The Animation",
+    "imdb_id": "tt2698484",
+    "mediatype": "show",
+    "release_year": "2013",
+    "vote_average": 7.7,
+    "genre_ids": [
+      16,
+      10765,
+      10759
+    ],
+    "is_horror": false,
+    "detected_date": "2026-10-06",
+    "source_title": "Devil Survivor 2: The Animation - Complete Collection (Blu-ray)"
+  },
+  "94954": {
+    "id": 94954,
+    "title": "Hazbin Hotel",
+    "imdb_id": "tt7216636",
+    "mediatype": "show",
+    "release_year": "2024",
+    "vote_average": 8.5,
+    "genre_ids": [
+      16,
+      35,
+      18,
+      10765
+    ],
+    "is_horror": false,
+    "detected_date": "2026-10-06",
+    "source_title": "Hazbin Hotel: Season Two (Blu-ray)"
   }
 }

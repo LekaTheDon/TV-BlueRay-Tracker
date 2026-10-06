@@ -62,5 +62,21 @@
     "imdb_id": "tt0773262",
     "mediatype": "show",
     "release_year": "2006"
+  },
+  {
+    "id": 225891,
+    "rank": 9,
+    "title": "The Madison",
+    "imdb_id": "tt33204276",
+    "mediatype": "show",
+    "release_year": "2026"
+  },
+  {
+    "id": 94954,
+    "rank": 10,
+    "title": "Hazbin Hotel",
+    "imdb_id": "tt7216636",
+    "mediatype": "show",
+    "release_year": "2024"
   }
 ]
