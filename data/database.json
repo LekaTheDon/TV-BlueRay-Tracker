@@ -233,5 +233,52 @@
     "is_horror": true,
     "detected_date": "2026-10-11",
     "source_title": "Vampire Princess Miyu: The Complete OVA Series (Blu-ray)"
+  },
+  "83095": {
+    "id": 83095,
+    "title": "The Rising of the Shield Hero",
+    "imdb_id": "tt9529546",
+    "mediatype": "show",
+    "release_year": "2019",
+    "vote_average": 8.453,
+    "genre_ids": [
+      16,
+      10759,
+      10765,
+      18
+    ],
+    "is_horror": false,
+    "detected_date": "2026-10-13",
+    "source_title": "The Rising of the Shield Hero: Season Four (Blu-ray)"
+  },
+  "953": {
+    "id": 953,
+    "title": "Maverick",
+    "imdb_id": "tt0050037",
+    "mediatype": "show",
+    "release_year": "1957",
+    "vote_average": 7.0,
+    "genre_ids": [
+      35,
+      37
+    ],
+    "is_horror": false,
+    "detected_date": "2026-10-13",
+    "source_title": "Maverick: The Complete Series (Blu-ray)"
+  },
+  "66875": {
+    "id": 66875,
+    "title": "Non Non Biyori",
+    "imdb_id": "tt3114358",
+    "mediatype": "show",
+    "release_year": "2013",
+    "vote_average": 7.846,
+    "genre_ids": [
+      16,
+      35
+    ],
+    "is_horror": false,
+    "detected_date": "2026-10-13",
+    "source_title": "Non Non Biyori: Complete Series Collection (Blu-ray)"
   }
 }

@@ -1,7 +1,31 @@
 [
   {
-    "id": 42460,
+    "id": 83095,
     "rank": 1,
+    "title": "The Rising of the Shield Hero",
+    "imdb_id": "tt9529546",
+    "mediatype": "show",
+    "release_year": "2019"
+  },
+  {
+    "id": 953,
+    "rank": 2,
+    "title": "Maverick",
+    "imdb_id": "tt0050037",
+    "mediatype": "show",
+    "release_year": "1957"
+  },
+  {
+    "id": 66875,
+    "rank": 3,
+    "title": "Non Non Biyori",
+    "imdb_id": "tt3114358",
+    "mediatype": "show",
+    "release_year": "2013"
+  },
+  {
+    "id": 42460,
+    "rank": 4,
     "title": "Vampire Princess Miyu",
     "imdb_id": "tt0158415",
     "mediatype": "show",
@@ -9,7 +33,7 @@
   },
   {
     "id": 225891,
-    "rank": 2,
+    "rank": 5,
     "title": "The Madison",
     "imdb_id": "tt33204276",
     "mediatype": "show",
@@ -17,7 +41,7 @@
   },
   {
     "id": 54933,
-    "rank": 3,
+    "rank": 6,
     "title": "Devil Survivor 2: The Animation",
     "imdb_id": "tt2698484",
     "mediatype": "show",
@@ -25,7 +49,7 @@
   },
   {
     "id": 94954,
-    "rank": 4,
+    "rank": 7,
     "title": "Hazbin Hotel",
     "imdb_id": "tt7216636",
     "mediatype": "show",
@@ -33,7 +57,7 @@
   },
   {
     "id": 1405,
-    "rank": 5,
+    "rank": 8,
     "title": "Dexter",
     "imdb_id": "tt0773262",
     "mediatype": "show",
@@ -41,7 +65,7 @@
   },
   {
     "id": 56570,
-    "rank": 6,
+    "rank": 9,
     "title": "Outlander",
     "imdb_id": "tt3006802",
     "mediatype": "show",
@@ -49,7 +73,7 @@
   },
   {
     "id": 157741,
-    "rank": 7,
+    "rank": 10,
     "title": "Landman",
     "imdb_id": "tt14186672",
     "mediatype": "show",
@@ -57,7 +81,7 @@
   },
   {
     "id": 222977,
-    "rank": 8,
+    "rank": 11,
     "title": "The Inugami Family",
     "imdb_id": null,
     "mediatype": "show",
@@ -65,7 +89,7 @@
   },
   {
     "id": 64492,
-    "rank": 9,
+    "rank": 12,
     "title": "SHIROBAKO",
     "imdb_id": "tt3985228",
     "mediatype": "show",
@@ -73,7 +97,7 @@
   },
   {
     "id": 60726,
-    "rank": 10,
+    "rank": 13,
     "title": "Forever",
     "imdb_id": "tt3487382",
     "mediatype": "show",
@@ -81,7 +105,7 @@
   },
   {
     "id": 153312,
-    "rank": 11,
+    "rank": 14,
     "title": "Tulsa King",
     "imdb_id": "tt16358384",
     "mediatype": "show",
@@ -89,7 +113,7 @@
   },
   {
     "id": 3902,
-    "rank": 12,
+    "rank": 15,
     "title": "Shaun the Sheep",
     "imdb_id": "tt0983983",
     "mediatype": "show",
@@ -97,7 +121,7 @@
   },
   {
     "id": 101972,
-    "rank": 13,
+    "rank": 16,
     "title": "Our Last Crusade or the Rise of a New World",
     "imdb_id": "tt12331304",
     "mediatype": "show",
@@ -105,7 +129,7 @@
   },
   {
     "id": 253,
-    "rank": 14,
+    "rank": 17,
     "title": "Star Trek",
     "imdb_id": "tt0060028",
     "mediatype": "show",
@@ -113,7 +137,7 @@
   },
   {
     "id": 280110,
-    "rank": 15,
+    "rank": 18,
     "title": "My Hero Academia: Vigilantes",
     "imdb_id": "tt35636246",
     "mediatype": "show",
