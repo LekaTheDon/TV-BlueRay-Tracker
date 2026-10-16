@@ -27,7 +27,7 @@
   "Eclipse Series 5: The First Films of Samuel Fuller (Blu-ray)": {
     "search_query": "Eclipse Series 5: The First Films of Samuel Fuller",
     "reason": "no_match",
-    "checked_date": "2026-10-15"
+    "checked_date": "2026-10-16"
   },
   "The Black Cat 4K (Blu-ray)": {
     "search_query": "The Black Cat",
@@ -35,7 +35,7 @@
     "candidate_title": "The Classroom of a Black Cat and a Witch",
     "candidate_tmdb_id": 297557,
     "confidence": 0.49,
-    "checked_date": "2026-10-15"
+    "checked_date": "2026-10-16"
   },
   "The Black Cat (Blu-ray)": {
     "search_query": "The Black Cat",
@@ -43,6 +43,6 @@
     "candidate_title": "The Classroom of a Black Cat and a Witch",
     "candidate_tmdb_id": 297557,
     "confidence": 0.49,
-    "checked_date": "2026-10-15"
+    "checked_date": "2026-10-16"
   }
 }
